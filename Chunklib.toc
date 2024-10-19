@@ -1,0 +1,4 @@
+## Interface: 110002
+## Title: Chunklib
+## Notes: Standard library for Kerhcunk's WoW Addons
+chunklib.lua
