@@ -51,6 +51,11 @@ local function padStr( str, pad, char, align )
   end
 end
 
+-- Utility function to convert RGB values (0-1) into hexadecimal (00-FF)
+local function colorConvertRGBToHex( r, g, b )
+  return string.format( "%02X%02X%02X", r * 255, g * 255, b * 255 )
+end
+
 -- Return a string with n repetitions of the specified character, if the optional title string
 -- is included, position it in the center of the rule (having truncated 2 plus the length of the
 -- string to keep the total length the same)
@@ -162,6 +167,12 @@ local function tableToConsole( tbl )
   Chunklib.console.out( highlightedOutput )
 end
 
+local function mergeTables( t1, t2 )
+  for k, v in pairs( t2 ) do
+    t1[k] = v
+  end
+  return t1
+end
 
 -- #endregion
 
@@ -198,16 +209,18 @@ end
 -- #endregion
 
 -- Add all the functions to the Chunklib namespace
-Chunklib.trimName         = trimName
-Chunklib.strContainsAny   = strContainsAny
-Chunklib.padStr           = padStr
-Chunklib.hrule            = hrule
-Chunklib.isEmpty          = isEmpty
-Chunklib.isInTable        = isInTable
-Chunklib.isInList         = isInList
-Chunklib.deepCompare      = deepCompare
-Chunklib.deepCopy         = deepCopy
-Chunklib.tableToString    = tableToString
-Chunklib.clamp            = clamp
-Chunklib.abbreviateNumber = abbreviateNumber
-Chunklib.expandNumber     = expandNumber
+-- Chunklib.trimName         = trimName
+-- Chunklib.strContainsAny   = strContainsAny
+Chunklib.padStr               = padStr
+-- Chunklib.hrule            = hrule
+Chunklib.isEmpty              = isEmpty
+Chunklib.isInTable            = isInTable
+-- Chunklib.isInList         = isInList
+-- Chunklib.deepCompare      = deepCompare
+-- Chunklib.deepCopy         = deepCopy
+Chunklib.tableToString        = tableToString
+-- Chunklib.clamp            = clamp
+Chunklib.abbreviateNumber     = abbreviateNumber
+Chunklib.expandNumber         = expandNumber
+-- Chunklib.mergeTables      = mergeTables
+Chunklib.colorConvertRGBToHex = colorConvertRGBToHex

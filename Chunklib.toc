@@ -2,9 +2,10 @@
 ## Title: Chunklib
 ## Notes: Standard library for Kerhcunk's WoW Addons
 ## IconTexture: Interface\AddOns\Chunklib\media\chunklib
-## SavedVariables: ChunklibColors
-00_chunklib_entry.lua
-10_chunklib_color.lua
-20_chunklib_console.lua
-25_chunklib_std.lua
-99_chunklib_init.lua
+00_entry.lua
+01_color_lib.lua
+05_std.lua
+11_color.lua
+20_console_init.lua
+21_console.lua
+99_init.lua
