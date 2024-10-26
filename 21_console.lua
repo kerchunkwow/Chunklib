@@ -28,6 +28,16 @@ local function consoleOut( text, type )
   end )
 end
 
+local lastConsoleOut = 0
+-- Calls consoleOut only if it has been at least delta seconds since the last time it called consoleOut
+local function consoleOutThrottled( text, type, delta )
+  local now = GetTime()
+  if now - lastConsoleOut > delta then
+    consoleOut( text, type )
+    lastConsoleOut = now
+  end
+end
+
 -- Print a nicely-formatted represntation of the value of a variable; useful for debugging
 local function consolePrintVar( var, val )
   local valType = type( val )
@@ -85,7 +95,7 @@ local function showColorInfo( color )
   end
 end
 
--- Slash Command: /conout writes to the console (mostly for validation)
+-- Slash Command: /color prints information about a specific color (or all if no parameter is given)
 Chunklib.slashCommands["COLOR_INFO"]     = {
   cmd = {"/color"},
   func = function ( color )
@@ -118,8 +128,9 @@ Chunklib.slashCommands["CONSOLE_OUT"]    = {
 }
 
 
-Chunklib.consoleOut      = consoleOut
-Chunklib.toggleConsole   = toggleConsole
-Chunklib.consolePrintVar = consolePrintVar
-Chunklib.consoleTitle    = consoleTitle
-Chunklib.clearConsole    = clearConsole
+Chunklib.consoleOut          = consoleOut
+Chunklib.toggleConsole       = toggleConsole
+Chunklib.consolePrintVar     = consolePrintVar
+Chunklib.consoleTitle        = consoleTitle
+Chunklib.clearConsole        = clearConsole
+Chunklib.consoleOutThrottled = consoleOutThrottled

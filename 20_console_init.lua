@@ -13,8 +13,8 @@ local config    = {
   height      = 480,
   font        = "Interface\\AddOns\\Chunklib\\media\\fonts\\veramono.ttf",
   fontSize    = 14,
-  bgColor     = {0, 0, 0, 0.8}, -- Solid black, semi-transparent
-  borderColor = {1, 1, 1, 1},   -- Solid white
+  bgColor     = {0, 0, 0, 0.95}, -- Solid black, semi-transparent
+  borderColor = {1, 1, 1, 1},    -- Solid white
   title       = "|cFFADFF2FChunklib Console|r",
 }
 

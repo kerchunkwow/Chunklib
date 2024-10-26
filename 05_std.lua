@@ -209,7 +209,7 @@ end
 -- #endregion
 
 -- Add all the functions to the Chunklib namespace
--- Chunklib.trimName         = trimName
+Chunklib.trimName             = trimName
 -- Chunklib.strContainsAny   = strContainsAny
 Chunklib.padStr               = padStr
 -- Chunklib.hrule            = hrule

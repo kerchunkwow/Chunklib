@@ -8,4 +8,5 @@
 11_color.lua
 20_console_init.lua
 21_console.lua
+30_message.lua
 99_init.lua
