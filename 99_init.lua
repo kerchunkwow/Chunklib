@@ -16,8 +16,8 @@ local function initChunklib()
     Chunklib.init[label] = nil
   end
   -- Unregister for any further ADDON_LOADED events
-  fr:UnregisterEvent( "ADDON_LOADED" )
-  eventHandlers["ADDON_LOADED"] = nil
+  -- fr:UnregisterEvent( "ADDON_LOADED" )
+  -- eventHandlers["ADDON_LOADED"] = nil
   -- Cleanup the init table itself
   Chunklib.init = nil
 end
@@ -35,16 +35,9 @@ local function _ADDON_LOADED( addonName )
     C_Timer.After( 3, function () initChunklib = nil end )
   end
 end
-eventHandlers["ADDON_LOADED"] = _ADDON_LOADED
+-- eventHandlers["ADDON_LOADED"] = _ADDON_LOADED
 
--- Register all of the events that have been added to the eventHandlers table
-for e in pairs( eventHandlers ) do
-  fr:RegisterEvent( e )
-end
--- Set the script to invoke event handler functions when those events are received
-fr:SetScript( "OnEvent", function ( self, event, ... )
-  eventHandlers[event]( ... )
-end )
+Chunklib.initChunklib = initChunklib
 
 -- Create slash commands as defined in the slashCommands table
 for name, data in pairs( slashCommands ) do
